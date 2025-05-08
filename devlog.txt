@@ -2,3 +2,7 @@ jasonC -- 2025-05-02 11:32
  - Created files and directories for project.
 timN -- 2025-05-05 11:20
  - uploaded flag.jpg and edited README.md
+adityaA, jasonC, timN, stellaY -- 2025-05-08 11:47
+ - updated readme by changing database to mongo and changing some descriptions
+adityaA -- 2025-05-08 11:47
+ - created py file and added description
