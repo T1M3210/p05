@@ -8,3 +8,7 @@ adityaA -- 2025-05-08 11:47
  - created py file and added description
 timN -- 2025-05-09 6:00
  - updated requirements.txt, added login/signup functionality, navbar
+stellaY -- 2025-05-09 9:45
+ - add db methods
+stellaY -- 2025-05-09 11:45
+ -add rule directory
