@@ -1,5 +1,5 @@
 import pymongo
-
+import bcrypt
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
@@ -18,3 +18,30 @@ client = MongoClient(uri, server_api=ServerApi('1'))
 #     print(e)
 
 # Create Mongo collections
+db = client['database']
+userCollection = db['users']
+
+def addUser(username, password):
+   salt = bcrypt.gensalt()
+   hash = bcrypt.hashpw(password.encode('utf-8'), salt)
+
+   Users = {
+    'username' : username,
+    'salt' : salt,
+    'hash' : hash
+   }
+   insert = userCollection.insert_one(Users)
+
+def verifyUser(user, pass):
+    for doc in userCollection.find({'username' : user})
+    salt = doc['salt']
+    hash = doc['hash']
+
+    inputHash = bcrypt.hashpw(pass.encode('utf-8'), salt)
+    if hash == inputHash:
+        print('login successful')
+        return True
+    else:
+        print('Password incorrect')
+    print('Username not found')
+    return False
