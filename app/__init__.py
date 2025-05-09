@@ -46,6 +46,10 @@ def logout():
     session.pop("user", None)
     flash("Logged out.")
     return redirect(url_for("login"))
-    
+
+@app.route("/game")
+def game():
+    return render_template("game.html")
+
 if __name__ == '__main__':
     app.run(debug = True)
