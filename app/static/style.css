@@ -1,0 +1,7 @@
+#obstacle-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: left 0.3s ease, top 0.3s ease;
+}
