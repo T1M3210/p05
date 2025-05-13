@@ -21,6 +21,11 @@ client = MongoClient(uri, server_api=ServerApi('1'))
 db = client['database']
 userCollection = db['users']
 
+def checkUser(username):
+    if users.find_one({"username": username}):
+        return True
+    else:
+        return False
 def addUser(username, password):
    salt = bcrypt.gensalt()
    hash = bcrypt.hashpw(password.encode('utf-8'), salt)
