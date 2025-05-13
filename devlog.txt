@@ -13,6 +13,9 @@ stellaY -- 2025-05-09 9:45
 stellaY -- 2025-05-09 11:45
  -add rule directory
 jasonC -- 2025-05-13 11:47
-  - updated base.html and improved navbar
-  - fixed problems with register connection
-  - developed a way to insert rules in password game
+ - updated base.html and improved navbar
+ - fixed problems with register connection
+ - developed a way to insert rules in password game
+jasonC -- 2025-05-13 1:50
+ - correctly named mongo key file
+ - changes to game page
