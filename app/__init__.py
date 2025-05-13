@@ -12,7 +12,8 @@ def home():
 def register():
     if request.method == "POST":
         username = request.form["username"]
-        password = request.form["password"]
+        # password = request.form["password"]
+        # PASSWORD RETRIEVED FROM GAME
 
         if users.find_one({"username": username}):
             flash("Username already exists.")
