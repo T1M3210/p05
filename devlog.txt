@@ -16,8 +16,12 @@ jasonC -- 2025-05-13 11:47
  - updated base.html and improved navbar
  - fixed problems with register connection
  - developed a way to insert rules in password game
+stellaY -- 2025-05-13 11:47
+ - add helper functions for db
 jasonC -- 2025-05-13 1:50
  - correctly named mongo key file
  - changes to game page
 timN -- 2025-05-13 22:29
  - Updated Launch Codes + Install Guide
+stellaY -- 2025-05-14 10:54
+ - Added rule class and rules.js, wrote a rule
