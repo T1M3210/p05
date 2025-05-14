@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guessing Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000000;
+            margin: 0;
+            background-image: url('https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        .game-container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8888888);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-top: 10px;
+            width: 50%;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #FFA500;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+            animation: shake 0.5s ease-in-out;
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+            75% { transform: translateX(-10px); }
+            100% { transform: translateX(10px); }
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .distance {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+        .guesses-left {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .buttons-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        table {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+   <div class="game-container">
+        <h1>Guess the Country</h1>
+        <p>Guess the country</p>
+
+        <form action="/guess" method="post">
+            <input type="text" id="guess" name="guess" placeholder="Enter your guess">
+            <button type="submit">Submit Guess</button>
+        </form>
+
+        <div class="message" id="message">{{ message }}</div>
+        <div class="distance" id="distance">
+            {% if distance is not none %}
+                Distance from the target country: {{ gameState.lastDistance }} km
+            {% endif %}
+        </div>
+        <div class="guesses-left" id="guesses-left">Guesses Left: {{ gameState.guessesLeft }}</div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Guess</th>
+                    <th>Distance (km)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for message, cumulativeDistance in gameState.previousGuesses %}
+                <tr>
+                    <td>{{ message }}</td>
+                    <td>{{ gameState.cumulativeDistance }} km</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="buttons-container">
+        <button class="btn" onclick="window.location.href='/scores'">Leaderboard</button>
+    </div>
+
+</body>
+</html>
