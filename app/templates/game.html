@@ -2,7 +2,12 @@
 {% block content %}
 <div class="container pt-3 d-flex justify-content-center">
     <h3 class="mb-4">Password Game</h3>
-    <!-- <div class="form-group p-3">
-        < -->
+    <br>
+    {% for rule in rules %}
+        <div class="d-block container-sm">
+            <h1>{{ rule }}</h1>
+        </div>
+        <br>
+    {% endfor %}
 </div>
 {% endblock %}

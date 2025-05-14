@@ -50,7 +50,7 @@ def logout():
 
 @app.route("/game")
 def game():
-    return render_template("game.html")
+    return render_template("game.html", rules=[1,2,3,4,5])
 
 @app.route('/story')
 def story():
