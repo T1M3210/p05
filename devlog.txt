@@ -25,3 +25,5 @@ timN -- 2025-05-13 22:29
  - Updated Launch Codes + Install Guide
 stellaY -- 2025-05-14 10:54
  - Added rule class and rules.js, wrote a rule
+timN -- 2025-05-14 11:33
+ - Fixed db errors, linked it, fixed sign up

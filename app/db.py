@@ -3,7 +3,7 @@ import bcrypt
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
-mongo_key = open("keys/mongodb.txt").read().strip("\n")
+mongo_key = open("keys/key_mongo.txt").read().strip("\n")
 
 uri = f"mongodb+srv://jasonc573:{mongo_key}@ynca.axg704f.mongodb.net/?retryWrites=true&w=majority&appName=ynca"
 
@@ -37,12 +37,12 @@ def addUser(username, password):
    }
    insert = userCollection.insert_one(Users)
 
-def verifyUser(user, pass):
-    for doc in userCollection.find({'username' : user})
-    salt = doc['salt']
-    hash = doc['hash']
+def verifyUser(user, Pass):
+    for doc in userCollection.find({'username' : user}):
+        salt = doc['salt']
+        hash = doc['hash']
 
-    inputHash = bcrypt.hashpw(pass.encode('utf-8'), salt)
+        inputHash = bcrypt.hashpw(Pass.encode('utf-8'), salt)
     if hash == inputHash:
         print('login successful')
         return True
