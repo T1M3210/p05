@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container pt-3 d-flex justify-content-center">
-    <h3 class="mb-4">Password Game</h3>
+<div class="container pt-3 d-block">
+    <h1 class="mb-4 text-center">Password Game</h1>
     <br>
     {% for rule in rules %}
-        <div class="d-block container-sm">
+        <div id="rule" class="d-block my-2 container-sm text-center">
             <h1>{{ rule }}</h1>
         </div>
         <br>
