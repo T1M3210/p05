@@ -11,14 +11,32 @@ body {
 }
 
 #rule {
+    transition: 0.2s;
+    scale: 1;
     margin: auto;
-    width: 70%;
+    width: 60%;
     border: thin;
     border-radius: 10px;
     box-shadow: 5px 5px;
     background-color: rgb(230, 216, 191);
 }
 
-#rule: hover {
-    transition: scale(1.1) 0.2s;
+#rule:hover {
+    transition: 0.2s;
+    scale: 1.1;
+}
+
+#rule-title {
+    padding: 2%;
+}
+
+input[type=text] {
+    display: block;
+    margin: 0 auto;
+    height: 60px;
+    width: 40%;
+    font-size: 40px;
+    padding: 12px 12px;
+    border-radius: 5px;
+    margin-bottom: 5%;
 }

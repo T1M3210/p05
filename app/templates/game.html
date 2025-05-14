@@ -3,9 +3,14 @@
 <div class="container pt-3 d-block">
     <h1 class="mb-4 text-center">Password Game</h1>
     <br>
+    <form>
+        <!-- USE JS TO MAKE THIS TEXTBOX EXPAND DOWNWARDS INSTEAD OF HORIZONTALLY -->
+        <input type="text" id="create-password" name="create-password" placeholder="Enter Password">
+    </form>
     {% for rule in rules %}
-        <div id="rule" class="d-block my-2 container-sm text-center">
-            <h1>{{ rule }}</h1>
+    <!-- IF RULE IS SATISFIED HAVE LIGHT GREEN BG, ELSE LIGHT RED BG -->
+        <div id="rule" class="d-block my-3 container-sm text-center">
+            <h3 id="rule-title">Rule {{ rule }}</h3>
         </div>
         <br>
     {% endfor %}

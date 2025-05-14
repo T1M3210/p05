@@ -22,3 +22,6 @@ jasonC -- 2025-05-13 1:50
 jasonC -- 2025-05-14 11:47
  - added structure for rules
  - added css styling
+jasonC -- 2025-05-14 1:55
+ - added input textbox in password game
+ - CSS formatting
