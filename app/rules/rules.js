@@ -1,6 +1,10 @@
-//write simple rules ex "password must have x"
-import Rule
+import Rule from "./Rule";
 
-ruleList = arr{
-  new Rule("Password must have ")
-}
+const rules = [
+    new Rule(
+        "Your password must have a number",
+        (input) => /\d/.test(input)
+    ),
+];
+
+export default rules;
