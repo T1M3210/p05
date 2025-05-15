@@ -16,7 +16,13 @@ const rules = [
 
     new Rule(
         "The digits in your password must add up to 79",
-        
+        //literally how the fuck do I do that
+    ),
+
+    new Rule(
+        "Your password must contain today's date",
+        //literally how the fuck do I do that
+
     )
 
 ];
