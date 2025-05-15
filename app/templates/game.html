@@ -3,10 +3,14 @@
 <div class="container pt-3 d-block">
     <h1 class="mb-4 text-center">Password Game</h1>
     <br>
-    <form>
-        <!-- USE JS TO MAKE THIS TEXTBOX EXPAND DOWNWARDS INSTEAD OF HORIZONTALLY -->
-        <input type="text" id="create-password" name="create-password" placeholder="Enter Password">
+    <form method="post">
+        <textarea id="enter-password" placeholder="Enter Password" rows="1" ></textarea>
+
+        <!-- USE JS TO HIDE THIS BUTTON UNTIL ALL RULES ARE SATISFIED -->
+        <input type="submit" value="Create Password">
     </form>
+
+
     {% for rule in rules %}
     <!-- IF RULE IS SATISFIED HAVE LIGHT GREEN BG, ELSE LIGHT RED BG -->
         <div id="rule" class="d-block my-3 container-sm text-center">
@@ -14,5 +18,17 @@
         </div>
         <br>
     {% endfor %}
+
+    <script>
+        // Function to auto-expand the textarea as you type
+        const textarea = document.getElementById('enter-password');
+
+        textarea.addEventListener('input', () => {
+            // Reset the height to auto before calculating
+            textarea.style.height = 'auto';
+            // Set the height to match the scrollHeight, making the textarea expand
+            textarea.style.height = `${textarea.scrollHeight}px`;
+        });
+    </script>
 </div>
 {% endblock %}
