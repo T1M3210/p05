@@ -12,3 +12,20 @@ stellaY -- 2025-05-09 9:45
  - add db methods
 stellaY -- 2025-05-09 11:45
  -add rule directory
+jasonC -- 2025-05-13 11:47
+ - updated base.html and improved navbar
+ - fixed problems with register connection
+ - developed a way to insert rules in password game
+jasonC -- 2025-05-13 1:50
+ - correctly named mongo key file
+ - changes to game page
+stellaY -- 2025-05-14 10:54
+ - Added rule class and rules.js, wrote a rule
+timN -- 2025-05-14 11:33
+ - Fixed db errors, linked it, fixed sign up
+jasonC -- 2025-05-14 11:47
+ - added structure for rules
+ - added css styling
+jasonC -- 2025-05-14 1:55
+ - added input textbox in password game
+ - CSS formatting

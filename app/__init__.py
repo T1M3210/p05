@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, url_for, flash
 import os
+from db import userCollection
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
@@ -12,14 +13,15 @@ def home():
 def register():
     if request.method == "POST":
         username = request.form["username"]
-        password = request.form["password"]
+        # password = request.form["password"]
+        # PASSWORD RETRIEVED FROM GAME
 
-        if users.find_one({"username": username}):
+        if userCollection.find_one({"username": username}):
             flash("Username already exists.")
             return redirect(url_for("register"))
 
         hashed_pw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
-        users.insert_one({"username": username, "password": hashed_pw})
+        userCollection.insert_one({"username": username, "password": hashed_pw})
         flash("Account created! Please log in.")
         return redirect(url_for("login"))
 
@@ -49,7 +51,7 @@ def logout():
 
 @app.route("/game")
 def game():
-    return render_template("game.html")
+    return render_template("game.html", rules=[1,2,3,4,5])
 
 @app.route('/story')
 def story():

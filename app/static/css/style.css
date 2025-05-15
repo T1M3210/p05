@@ -1,0 +1,52 @@
+body {
+    background-color: rgb(255, 251, 235);
+}
+
+#obstacle-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: left 0.3s ease, top 0.3s ease;
+}
+
+.nav-link {
+    margin: auto;
+}
+
+.nav-link:hover {
+    font-weight: 500;
+    margin-top: 3px;
+    border-bottom: solid 3px;
+}
+
+#rule {
+    transition: 0.2s;
+    scale: 1;
+    margin: auto;
+    width: 60%;
+    border: thin;
+    border-radius: 10px;
+    box-shadow: 5px 5px;
+    background-color: rgb(230, 216, 191);
+}
+
+#rule:hover {
+    transition: 0.2s;
+    scale: 1.1;
+}
+
+#rule-title {
+    padding: 2%;
+}
+
+input[name="create-password"] {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    padding: 12px 12px;
+    width: 40%;
+    height: 60px;
+    font-size: 40px;
+    border-radius: 5px;
+}
