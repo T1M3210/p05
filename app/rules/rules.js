@@ -11,8 +11,13 @@ const rules = [
     ),
     new Rule(
         "Your password must include avogadro's number (Use * and ^ or e, 2 decimal places) ",
-        (input) => /6.02*10^23|6.02e23/.test(input)
+        (input) => /(6.02*10^23|6.02e23)/.test(input)
     ),
+
+    new Rule(
+        "The digits in your password must add up to 79",
+        
+    )
 
 ];
 
