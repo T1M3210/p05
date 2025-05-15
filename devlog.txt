@@ -29,3 +29,6 @@ jasonC -- 2025-05-14 11:47
 jasonC -- 2025-05-14 1:55
  - added input textbox in password game
  - CSS formatting
+jasonC -- 2025-05-15 11:55
+ - changed textbox using JS to make it expand vertically
+ - added styling to navbar elements
