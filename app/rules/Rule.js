@@ -1,9 +1,4 @@
 //Write rule class
-export default class Rule{
-    constructor(str){
-        this.str = str;
-        this.pass = false;
-    }
 export default class Rule {
     constructor(str, condition) {
         this.str = str; // text for rule
