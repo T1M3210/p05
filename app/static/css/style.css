@@ -16,7 +16,8 @@ body {
 
 .nav-link:hover {
     font-weight: 500;
-    border: solid;
+    margin-top: 3px;
+    border-bottom: solid 3px;
 }
 
 #rule {
