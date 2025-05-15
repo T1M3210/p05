@@ -20,8 +20,26 @@ body {
     border-bottom: solid 3px;
 }
 
-#rule {
-    transition: 0.2s;
+textarea[id=enter-password] {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    width: 40%;
+    min-height: 3px;
+    resize: none; /** Removes resize handle **/
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 40px;
+    border-radius: 5px;
+    overflow: hidden; /** Hide scroll bar **/
+}
+
+input[type=submit] {
+
+}
+
+div[id=rule] {
+    transition: 0.3s;
     scale: 1;
     margin: auto;
     width: 60%;
@@ -31,22 +49,11 @@ body {
     background-color: rgb(230, 216, 191);
 }
 
-#rule:hover {
-    transition: 0.2s;
-    scale: 1.1;
+div[id=rule]:hover {
+    transition: 0.3s;
+    scale: 1.05;
 }
 
-#rule-title {
+h3[id=rule-title] {
     padding: 2%;
-}
-
-input[name="create-password"] {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 5%;
-    padding: 12px 12px;
-    width: 40%;
-    height: 60px;
-    font-size: 40px;
-    border-radius: 5px;
 }
