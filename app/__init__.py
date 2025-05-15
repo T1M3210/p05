@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, url_for, flash
 import os
-from db import userCollection
+from db import *
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
@@ -20,10 +20,10 @@ def register():
             flash("Username already exists.")
             return redirect(url_for("register"))
 
-        hashed_pw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
-        userCollection.insert_one({"username": username, "password": hashed_pw})
+        #hashed_pw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
+        userCollection.insert_one({"username": username})
         flash("Account created! Please log in.")
-        return redirect(url_for("login"))
+        return redirect(url_for("game"))
 
     return render_template("register.html")
 
