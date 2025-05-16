@@ -37,3 +37,5 @@ jasonC -- 2025-05-16 11:47
  - updated navbar
 stellaY -- 2025-05-16 11:47
  -Worked on adding rules
+adityaA, timN -- 2025-05-16 11:47
+-worked on debugging internal server error
