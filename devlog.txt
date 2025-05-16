@@ -35,3 +35,5 @@ jasonC -- 2025-05-15 11:45
 jasonC -- 2025-05-16 11:47
  - fixed submit password button
  - updated navbar
+stellaY -- 2025-05-16 11:47
+ -Worked on adding rules
