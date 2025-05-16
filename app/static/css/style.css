@@ -15,6 +15,11 @@ body {
 }
 
 .nav-link:hover {
+    transition: 0.1s;
+    color: grey;
+}
+
+a[id=active] {
     font-weight: 500;
     margin-top: 3px;
     border-bottom: solid 3px;
@@ -23,7 +28,7 @@ body {
 textarea[id=enter-password] {
     display: block;
     margin: 0 auto;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     width: 40%;
     min-height: 3px;
     resize: none; /** Removes resize handle **/
@@ -35,7 +40,17 @@ textarea[id=enter-password] {
 }
 
 input[type=submit] {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    padding: 1%;
+    border: solid 2px grey;
+    border-radius: 15px;
+    transition: 0.2s;
+}
 
+input[type=submit]:hover {
+    transition: 0.2s;
 }
 
 div[id=rule] {
@@ -45,7 +60,7 @@ div[id=rule] {
     width: 60%;
     border: thin;
     border-radius: 10px;
-    box-shadow: 5px 5px;
+    box-shadow: 3px 3px grey;
     background-color: rgb(230, 216, 191);
 }
 

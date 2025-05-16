@@ -1,25 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
-    <div class="card p-4 shadow-sm" style="width: 100%; max-width: 400px;">
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            <div class="alert alert-warning" role="alert">
-              {% for message in messages %}
-                <p>{{ message }}</p>
-              {% endfor %}
+<nav class="navbar navbar-expand-lg text-muted bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('home') }}" style="margin-left: -1%;">
+            <img src="{{ url_for('static', filename='logo.jpg') }}" width="60" height="60" class="d-inline-block align-top" alt="logo">
+        </a>
+        <div class="collapse navbar-collapse">
+            <div class="navbar-nav">
+                <a class="nav-link mx-4 text-light" href="{{ url_for('home') }}">Home</a>
+                <a class="nav-link mx-2 text-light" href="{{ url_for('login') }}">Login</a>
+                <a id="active" class="nav-link mx-4 text-light" href="{{ url_for('register') }}">Sign Up</a>
             </div>
-          {% endif %}
-        {% endwith %}
-        <h3 class="text-center mb-4">Sign Up</h3>
-        <form method="POST">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" name="username" class="form-control" id="username" required>
-            </div>
-            <button type="submit" class="btn btn-primary w-100 mt-3"><a href="{{ url_for('game') }}" style="color: white; text-decoration: none;">Create Password</a></button>
-        </form>
-        <p class="text-center mt-3 mb-0">Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+        </div>
     </div>
-</div>
+</nav>
+
+<main class="container mt-4">
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+        <div class="card p-4 shadow-sm" style="width: 100%; max-width: 400px;">
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <div class="alert alert-warning" role="alert">
+                  {% for message in messages %}
+                    <p>{{ message }}</p>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endwith %}
+            <h3 class="text-center mb-4">Sign Up</h3>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" class="form-control" id="username" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mt-3"><a href="{{ url_for('game') }}" style="color: white; text-decoration: none;">Create Password</a></button>
+            </form>
+            <p class="text-center mt-3 mb-0">Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+        </div>
+    </div>
+</main>
 {% endblock %}

@@ -1,34 +1,55 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container pt-3 d-block">
-    <h1 class="mb-4 text-center">Password Game</h1>
-    <br>
-    <form method="post">
-        <textarea id="enter-password" placeholder="Enter Password" rows="1" ></textarea>
-
-        <!-- USE JS TO HIDE THIS BUTTON UNTIL ALL RULES ARE SATISFIED -->
-        <input type="submit" value="Create Password">
-    </form>
-
-
-    {% for rule in rules %}
-    <!-- IF RULE IS SATISFIED HAVE LIGHT GREEN BG, ELSE LIGHT RED BG -->
-        <div id="rule" class="d-block my-3 container-sm text-center">
-            <h3 id="rule-title">Rule {{ rule }}</h3>
+<nav class="navbar navbar-expand-lg text-muted bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('home') }}" style="margin-left: -1%;">
+            <img src="{{ url_for('static', filename='logo.jpg') }}" width="60" height="60" class="d-inline-block align-top" alt="logo">
+        </a>
+        <div class="collapse navbar-collapse">
+            <div class="navbar-nav">
+                <a class="nav-link mx-4 text-light" href="{{ url_for('home') }}">Home</a>
+            {% if 'user' in session %}
+                <a class="nav-link mx-4 text-light" href="{{ url_for('leaderboard') }}">Leaderboard</a>
+                <a class="nav-link mx-2 text-light" href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <a class="nav-link mx-2 text-light" href="{{ url_for('login') }}">Login</a>
+                <a class="nav-link mx-4 text-light" href="{{ url_for('register') }}">Sign Up</a>
+                <a id="active" class="nav-link mx-2 text-light" href="{{ url_for('game') }}">Game</a>
+            {% endif %}
+            </div>
         </div>
+    </div>
+</nav>
+
+<main class="container mt-4">
+    <div class="container pt-3 d-block">
+        <h1 class="mb-4 text-center">Good Luck!</h1>
         <br>
-    {% endfor %}
+        <form id="create-password" method="post">
+            <textarea id="enter-password" placeholder="Enter Password" rows="1" ></textarea>
 
-    <script>
-        // Function to auto-expand the textarea as you type
-        const textarea = document.getElementById('enter-password');
+            <!-- USE JS TO HIDE THIS BUTTON UNTIL ALL RULES ARE SATISFIED -->
+            <input type="submit" value="Submit Password">
+        </form>
+        {% for rule in rules %}
+        <!-- IF RULE IS SATISFIED HAVE LIGHT GREEN BG, ELSE LIGHT RED BG -->
+            <div id="rule" class="d-block my-3 container-sm text-center">
+                <h3 id="rule-title">Rule {{ rule }}</h3>
+            </div>
+            <br>
+        {% endfor %}
 
-        textarea.addEventListener('input', () => {
-            // Reset the height to auto before calculating
-            textarea.style.height = 'auto';
-            // Set the height to match the scrollHeight, making the textarea expand
-            textarea.style.height = `${textarea.scrollHeight}px`;
-        });
-    </script>
-</div>
+        <script>
+            // Function to auto-expand the textarea as you type
+            const textarea = document.getElementById('enter-password');
+
+            textarea.addEventListener('input', () => {
+                // Reset the height to auto before calculating
+                textarea.style.height = 'auto';
+                // Set the height to match the scrollHeight, making the textarea expand
+                textarea.style.height = `${textarea.scrollHeight}px`;
+            });
+        </script>
+    </div>
+</main>
 {% endblock %}
