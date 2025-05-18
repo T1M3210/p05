@@ -72,3 +72,26 @@ div[id=rule]:hover {
 h3[id=rule-title] {
     padding: 2%;
 }
+
+#color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: 10px;
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.color-square {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+#color-instruction {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+

@@ -57,6 +57,10 @@ def game():
 def story():
     return render_template("story.html")
 
+@app.route("/color-trap")
+def color_trap():
+    return render_template("color_trap.html")
+
 
 if __name__ == '__main__':
     app.run(debug = True)
