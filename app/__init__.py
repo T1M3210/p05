@@ -49,7 +49,7 @@ def logout():
     flash("Logged out.")
     return redirect(url_for("login"))
 
-@app.route("/game", methods=["POST"])
+@app.route("/game", methods=["POST", "GET"])
 def game():
     return render_template("game.html", rules=[1,2,3,4,5])
 
