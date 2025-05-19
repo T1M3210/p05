@@ -42,3 +42,6 @@ adityaA, timN -- 2025-05-16 11:47
 stellaY -- 2025-05-19 02:33
 -Attempted to get rules to render on page
 -Finished more rules
+adityaA -- 2025-05-19 11:47
+-color trap game
+-fake captcha
