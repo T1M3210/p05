@@ -25,11 +25,11 @@
     <div class="container pt-3 d-block">
         <h1 class="mb-4 text-center">Good Luck!</h1>
         <br>
-        <form id="create-password" method="post">
+        <form id="create-password" method="POST">
             <textarea id="enter-password" placeholder="Enter Password" rows="1" ></textarea>
 
             <!-- USE JS TO HIDE THIS BUTTON UNTIL ALL RULES ARE SATISFIED -->
-            <input type="submit" value="Submit Password">
+            <input type="submit" name="password" value="Submit Password">
         </form>
         {% for rule in rules %}
         <!-- IF RULE IS SATISFIED HAVE LIGHT GREEN BG, ELSE LIGHT RED BG -->

@@ -51,6 +51,9 @@ def logout():
 
 @app.route("/game", methods=["POST", "GET"])
 def game():
+    if request.method == "POST":
+        password = request.form[]
+        print(password)
     return render_template("game.html", rules=[1,2,3,4,5])
 
 @app.route('/story')
