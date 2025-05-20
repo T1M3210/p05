@@ -5,6 +5,9 @@ from db import *
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
+# GLOBAL VARIABLES
+username = ''
+
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -13,19 +16,22 @@ def home():
 def register():
     if request.method == "POST":
         username = request.form["username"]
-        # password = request.form["password"]
-        # PASSWORD RETRIEVED FROM GAME
 
-        if userCollection.find_one({"username": username}):
+        if check_user(username):
             flash("Username already exists.")
             return redirect(url_for("register"))
-
+        else:
+            return redirect(url_for("game"))
         #hashed_pw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
-        userCollection.insert_one({"username": username})
-        flash("Account created! Please log in.")
-        return redirect(url_for("game"))
-
+        # userCollection.insert_one({"username": username})
+        # flash("Account created! Please log in.")
     return render_template("register.html")
+
+@app.route("/game", methods=["POST", "GET"])
+def game():
+    if request.method == "POST":
+        password = request.form["enter-password"]
+    return render_template("game.html", rules=[1,2,3,4,5])
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -33,6 +39,7 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
 
+        # ==== INTEGRATE DB.PY METHODS HERE ====
         user = users.find_one({"username": username})
         if user and bcrypt.checkpw(password.encode("utf-8"), user["password"]):
             session["user"] = username
@@ -48,13 +55,6 @@ def logout():
     session.pop("user", None)
     flash("Logged out.")
     return redirect(url_for("login"))
-
-@app.route("/game", methods=["POST", "GET"])
-def game():
-    if request.method == "POST":
-        password = request.form["enter-password"]
-        # print(password)
-    return render_template("game.html", rules=[1,2,3,4,5])
 
 @app.route('/story')
 def story():
