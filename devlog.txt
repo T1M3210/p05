@@ -36,12 +36,14 @@ jasonC -- 2025-05-16 11:47
  - fixed submit password button
  - updated navbar
 stellaY -- 2025-05-16 11:47
- -Worked on adding rules
+ - Worked on adding rules
 adityaA, timN -- 2025-05-16 11:47
--worked on debugging internal server error
+ - worked on debugging internal server error
 stellaY -- 2025-05-19 02:33
--Attempted to get rules to render on page
--Finished more rules
+ - Attempted to get rules to render on page
+ - Finished more rules
 adityaA -- 2025-05-19 11:47
--color trap game
--fake captcha
+ - color trap game
+ - fake captcha
+jasonC -- 2025-05-19 22:50
+ - successfully linked password submission with Flask routing
