@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, url_for, flash
 import os
+import json
 from db import *
 
 app = Flask(__name__)
@@ -50,7 +51,9 @@ def logout():
 
 @app.route("/game")
 def game():
-    return render_template("game.html")
+    with open('static/rules.json') as f:
+        rules = json.load(f)
+    return render_template("game.html", rules = rules)
 
 @app.route('/story')
 def story():

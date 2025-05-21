@@ -1,5 +1,13 @@
 {% extends "base.html" %}
+<head>    
+</head>
+    <script>
+        const rules = {{ rules | tojson }};
+    </script>
+    <script type="module" src="{{ url_for('static', filename='js/game.js') }}"></script>
+
 {% block content %}
+
 <div class="container pt-3 d-block">
     <h1 class="mb-4 text-center">Password Game</h1>
     <br>
@@ -10,12 +18,10 @@
         <input type="submit" value="Create Password">
     </form>
 
-    <script type="module" src="{{ url_for('static', filename='js/game.js') }}"></script></div>
-
     {% for rule in rules %}
     <!-- IF RULE IS SATISFIED HAVE LIGHT GREEN BG, ELSE LIGHT RED BG -->
         <div id="rule" class="d-block my-3 container-sm text-center">
-            <h3 id="rule-title">Rule {{ rule }}</h3>
+            <h3 id="rule-title">{{ rule.str }}</h3>
         </div>
         <br>
     {% endfor %}
