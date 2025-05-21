@@ -33,7 +33,7 @@ textarea[id=enter-password] {
     min-height: 3px;
     resize: none; /** Removes resize handle **/
     box-sizing: border-box;
-    padding: 5px;
+    padding: 5px 10px 5px 10px;
     font-size: 40px;
     border-radius: 5px;
     overflow: hidden; /** Hide scroll bar **/

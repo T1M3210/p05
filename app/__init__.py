@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
 # GLOBAL VARIABLES
-username = ''
+global username
 
 @app.route('/')
 def home():
@@ -22,15 +22,13 @@ def register():
             return redirect(url_for("register"))
         else:
             return redirect(url_for("game"))
-        #hashed_pw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
-        # userCollection.insert_one({"username": username})
-        # flash("Account created! Please log in.")
     return render_template("register.html")
 
-@app.route("/game", methods=["POST", "GET"])
+@app.route("/game", methods=["GET", "POST"])
 def game():
     if request.method == "POST":
         password = request.form["enter-password"]
+        add_user(username, password)
     return render_template("game.html", rules=[1,2,3,4,5])
 
 @app.route("/login", methods=["GET", "POST"])
@@ -39,9 +37,7 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
 
-        # ==== INTEGRATE DB.PY METHODS HERE ====
-        user = users.find_one({"username": username})
-        if user and bcrypt.checkpw(password.encode("utf-8"), user["password"]):
+        if verify_user(username, password):
             session["user"] = username
             return redirect(url_for("home"))
         else:

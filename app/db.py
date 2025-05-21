@@ -52,8 +52,8 @@ def verify_user(username, password):
         print('Password incorrect')
         return False
 
-    print('Username not found')
-    return False
+    # print('Username not found')
+    # return False
 
 def clear_collection(collection_name):
     print("Deleting documents...")
