@@ -33,8 +33,7 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
 
-        user = users.find_one({"username": username})
-        if user and bcrypt.checkpw(password.encode("utf-8"), user["password"]):
+        if verifyUser(username, password):
             session["user"] = username
             return redirect(url_for("home"))
         else:
@@ -51,7 +50,7 @@ def logout():
 
 @app.route("/game")
 def game():
-    return render_template("game.html", rules=[1,2,3,4,5])
+    return render_template("game.html")
 
 @app.route('/story')
 def story():

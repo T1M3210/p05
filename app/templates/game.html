@@ -10,6 +10,7 @@
         <input type="submit" value="Create Password">
     </form>
 
+    <script type="module" src="{{ url_for('static', filename='js/game.js') }}"></script></div>
 
     {% for rule in rules %}
     <!-- IF RULE IS SATISFIED HAVE LIGHT GREEN BG, ELSE LIGHT RED BG -->
@@ -30,6 +31,4 @@
             textarea.style.height = `${textarea.scrollHeight}px`;
         });
     </script>
-    <script src = "../static/js/game.js"> </script>
-</div>
 {% endblock %}

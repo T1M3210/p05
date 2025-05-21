@@ -1,15 +1,9 @@
 import rules from './rules.js';
-
 document.addEventListener('DOMContentLoaded', () => {
     const textarea = document.getElementById('enter-password');
     const submitBtn = document.getElementById('submit-btn');
     const rulesContainer = document.getElementById('rules-container');
 
-    console.log("Password Game loaded");
-    console.log("Textarea:", textarea);
-    console.log("Submit button:", submitBtn);
-    console.log("Rules container:", rulesContainer);
-    console.log("Rules loaded:", rules);
 
     function renderRules(password) {
         rulesContainer.innerHTML = "";
@@ -41,4 +35,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     renderRules('');
-});
+} 
