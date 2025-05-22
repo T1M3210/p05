@@ -47,6 +47,8 @@ adityaA -- 2025-05-19 11:47
  - fake captcha
 jasonC -- 2025-05-19 22:50
  - successfully linked password submission with Flask routing
+adityaA, stellaY -- 2025-05-20 11:47
+ - worked on password game
 jasonC -- 2025-05-20 20:51
  - fully integrated database helper functions in __init__
  - changes to frontend
