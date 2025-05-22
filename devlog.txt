@@ -29,6 +29,24 @@ jasonC -- 2025-05-14 11:47
 jasonC -- 2025-05-14 1:55
  - added input textbox in password game
  - CSS formatting
-jasonC -- 2025-05-15 11:55
+jasonC -- 2025-05-15 11:45
  - changed textbox using JS to make it expand vertically
  - added styling to navbar elements
+jasonC -- 2025-05-16 11:47
+ - fixed submit password button
+ - updated navbar
+stellaY -- 2025-05-16 11:47
+ - Worked on adding rules
+adityaA, timN -- 2025-05-16 11:47
+ - worked on debugging internal server error
+stellaY -- 2025-05-19 02:33
+ - Attempted to get rules to render on page
+ - Finished more rules
+adityaA -- 2025-05-19 11:47
+ - color trap game
+ - fake captcha
+jasonC -- 2025-05-19 22:50
+ - successfully linked password submission with Flask routing
+jasonC -- 2025-05-20 20:51
+ - fully integrated database helper functions in __init__
+ - changes to frontend

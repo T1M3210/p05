@@ -15,6 +15,11 @@ body {
 }
 
 .nav-link:hover {
+    transition: 0.1s;
+    color: grey;
+}
+
+a[id=active] {
     font-weight: 500;
     margin-top: 3px;
     border-bottom: solid 3px;
@@ -23,19 +28,29 @@ body {
 textarea[id=enter-password] {
     display: block;
     margin: 0 auto;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     width: 40%;
     min-height: 3px;
     resize: none; /** Removes resize handle **/
     box-sizing: border-box;
-    padding: 5px;
+    padding: 5px 10px 5px 10px;
     font-size: 40px;
     border-radius: 5px;
     overflow: hidden; /** Hide scroll bar **/
 }
 
 input[type=submit] {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    padding: 1%;
+    border: solid 2px grey;
+    border-radius: 15px;
+    transition: 0.2s;
+}
 
+input[type=submit]:hover {
+    transition: 0.2s;
 }
 
 div[id=rule] {
@@ -45,7 +60,7 @@ div[id=rule] {
     width: 60%;
     border: thin;
     border-radius: 10px;
-    box-shadow: 5px 5px;
+    box-shadow: 3px 3px grey;
     background-color: rgb(230, 216, 191);
 }
 
@@ -57,3 +72,26 @@ div[id=rule]:hover {
 h3[id=rule-title] {
     padding: 2%;
 }
+
+#color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: 10px;
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.color-square {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+#color-instruction {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
