@@ -78,3 +78,5 @@ stellaY -- 2025-05-23 11:15
 jasonC -- 2025-05-23 11:37
  - Connected frontend to JS rules in the game
  - Removed extra "rules.js" file
+timN, adityaA -- 2025-05-23 11:47
+ - Continued debugging an issue
