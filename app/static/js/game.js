@@ -1,36 +1,37 @@
-import rules from '../rules.json' assert { type: 'json' };
+import Rule from './Rule.js';
 
-document.addEventListener('DOMContentLoaded', () => {
-    const textarea = document.getElementById('enter-password');
-    const submitBtn = document.getElementById('submit-btn');
-    const rulesContainer = document.getElementById('rules-container');
+function getToday() {
+    const d = new Date();
+    return d.toISOString().slice(0, 10);
+}
 
-    function renderRules(password) {
-        rulesContainer.innerHTML = "";
-        let allPassed = true;
+const rulesList = window.rules.map(r => new Rule(r.str, r.condition));
 
-        rules.forEach((rule, index) => {
-            const passed = rule.validate(password);
-            const ruleDiv = document.createElement('div');
-            ruleDiv.className = 'd-block my-3 container-sm text-center p-3';
-            ruleDiv.style.backgroundColor = passed ? 'lightgreen' : 'lightcoral';
-            ruleDiv.style.borderRadius = '5px';
-            ruleDiv.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-            ruleDiv.innerHTML = `<h3>Rule ${index + 1}: ${rule.str}</h3>`;
-            rulesContainer.appendChild(ruleDiv);
-            if (!passed) allPassed = false;
-        });
+const rulesDiv = document.getElementById('rules-list');
+rulesDiv.innerHTML = '';
+rulesList.forEach((rule, i) => {
+    const div = document.createElement('div');
+    div.className = 'd-block my-3 container-sm text-center rule-box';
+    div.style.backgroundColor = 'lightcoral';
+    div.style.borderRadius = '8px';
+    div.innerHTML = `<h3>${rule.str}</h3>`;
+    div.dataset.ruleIndex = i;
+    rulesDiv.appendChild(div);
+});
 
-        submitBtn.disabled = !allPassed;
-        submitBtn.style.display = allPassed ? 'inline-block' : 'none';
-    }
+const textarea = document.getElementById('enter-password');
+const form = textarea.closest('form');
+const submitBtn = form.querySelector('input[type=submit]');
+submitBtn.style.display = 'none';
 
-    textarea.addEventListener('input', () => {
-        renderRules(textarea.value);
-        // Auto resize
-        textarea.style.height = 'auto';
-        textarea.style.height = `${textarea.scrollHeight}px`;
+textarea.addEventListener('input', () => {
+    const value = textarea.value;
+    let allPassed = true;
+    rulesList.forEach((rule, i) => {
+        const valid = rule.validate(value, { today: getToday() });
+        const div = rulesDiv.querySelector(`.rule-box[data-rule-index="${i}"]`);
+        div.style.backgroundColor = valid ? 'lightgreen' : 'lightcoral';
+        allPassed = allPassed && valid;
     });
-
-    renderRules('');
+    submitBtn.style.display = allPassed ? '' : 'none';
 });
