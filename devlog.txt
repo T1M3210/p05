@@ -52,3 +52,22 @@ adityaA, stellaY -- 2025-05-20 11:47
 jasonC -- 2025-05-20 20:51
  - fully integrated database helper functions in __init__
  - changes to frontend
+timN -- 2025-05-22 23:03
+Application of Python Style
+ - 4-space indentation and blank lines between function definitions 
+ - Function naming in snake_case (ex: add_user, check_user, verify_user)
+ - Limited line length and avoiding compound statements for readability
+Most Useful: 
+ - Consistent indentation and clean function seperation, as mentioned in Indentation, Blank Lines
+ - Helped to quickly understand each route's behavior in our app during testing and debugging
+ - Ex: Line 31 of db.py: def verify_user(username, password):
+Application of JS Style
+ - 2-space indentation throughout event handlers and DOM manipulation code
+ - camelCase naming (ex: escapeCount, showCaptcha, etc.)
+ - Proper bracket placement and whitespace around operators 
+Most Useful:
+ - Consistent function structure and indentation helped reduce merge conflicts (!!!)
+ - ^^ is huge as we all work on JS for this project
+ - Made very readable through the structuring as well as vertical spacing 
+ - Ex: Line 42 of story.js: function showCaptcha() {
+ - ^^ function clearly named, scoped, and proper whitespace and indentation standards 
