@@ -11,6 +11,7 @@ const rulesDiv = document.getElementById('rules-list');
 rulesDiv.innerHTML = '';
 rulesList.forEach((rule, i) => {
     const div = document.createElement('div');
+    div.id = "rule";
     div.className = 'd-block my-3 container-sm text-center rule-box';
     div.style.backgroundColor = 'lightcoral';
     div.style.borderRadius = '8px';
