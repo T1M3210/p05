@@ -90,8 +90,13 @@ h3[id=rule-title] {
   box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
 
-#color-instruction {
-  text-align: center;
-  font-size: 20px;
-  margin-bottom: 20px;
+.rule-box {
+    transition: all 0.3s ease;
 }
+
+/*to hide the rules and reveal them 1 by 1*/
+.rule-box.hidden {
+  display: none !important; /* !important overrides and conflicting css */
+}
+
+
