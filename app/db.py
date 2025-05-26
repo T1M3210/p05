@@ -19,34 +19,46 @@ client = MongoClient(uri, server_api=ServerApi('1'))
 
 # Create Mongo collections
 db = client['database']
-userCollection = db['users']
+user_collection = db['users']
 
-def checkUser(username):
-    if users.find_one({"username": username}):
+def check_user(username):
+    if user_collection.find_one({"username": username}):
         return True
     else:
         return False
-def addUser(username, password):
+
+def add_user(username, password):
    salt = bcrypt.gensalt()
    hash = bcrypt.hashpw(password.encode('utf-8'), salt)
 
-   Users = {
+   user_dict = {
     'username' : username,
     'salt' : salt,
     'hash' : hash
    }
-   insert = userCollection.insert_one(Users)
+   insert = user_collection.insert_one(user_dict)
 
-def verifyUser(user, Pass):
-    for doc in userCollection.find({'username' : user}):
+def verify_user(username, password):
+    for doc in user_collection.find({'username' : username}):
         salt = doc['salt']
         hash = doc['hash']
 
-        inputHash = bcrypt.hashpw(Pass.encode('utf-8'), salt)
-    if hash == inputHash:
-        print('login successful')
+        input_hash = bcrypt.hashpw(password.encode('utf-8'), salt)
+
+    if hash == input_hash:
+        print('Login Successful')
         return True
     else:
         print('Password incorrect')
-    print('Username not found')
-    return False
+        return False
+
+    # print('Username not found')
+    # return False
+
+def clear_collection(collection_name):
+    print("Deleting documents...")
+    x = collection_name.delete_many({})
+    print("Done!")
+    print(x.deleted_count, " documents deleted.")
+
+# clear_collection(user_collection)

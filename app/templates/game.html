@@ -20,36 +20,26 @@
         </div>
     </div>
 </nav>
-
-<main class="container mt-4">
-    <div class="container pt-3 d-block">
-        <h1 class="mb-4 text-center">Good Luck!</h1>
-        <br>
-        <form id="create-password" method="post">
-            <textarea id="enter-password" placeholder="Enter Password" rows="1" ></textarea>
-
-            <!-- USE JS TO HIDE THIS BUTTON UNTIL ALL RULES ARE SATISFIED -->
-            <input type="submit" value="Submit Password">
-        </form>
-        {% for rule in rules %}
-        <!-- IF RULE IS SATISFIED HAVE LIGHT GREEN BG, ELSE LIGHT RED BG -->
-            <div id="rule" class="d-block my-3 container-sm text-center">
-                <h3 id="rule-title">Rule {{ rule }}</h3>
-            </div>
-            <br>
-        {% endfor %}
-
-        <script>
-            // Function to auto-expand the textarea as you type
-            const textarea = document.getElementById('enter-password');
-
-            textarea.addEventListener('input', () => {
-                // Reset the height to auto before calculating
-                textarea.style.height = 'auto';
-                // Set the height to match the scrollHeight, making the textarea expand
-                textarea.style.height = `${textarea.scrollHeight}px`;
-            });
-        </script>
-    </div>
-</main>
+<div class="container pt-3 d-block">
+    <h1 class="mt-4 mb-2 text-center">Create Your Password!</h1>
+    <br>
+    <script>
+        const rules = {{ rules | tojson }};
+        window.rules = rules; // Make it available to JS modules
+    </script>
+    <form method="post">
+        <textarea id="enter-password" placeholder="Enter Password" rows="1"></textarea>
+        <input type="submit" value="Create Password">
+    </form>
+    <div id="rules-list"></div>
+    <script>
+        // Function to auto-expand the textarea as you type
+        const textarea = document.getElementById('enter-password');
+        textarea.addEventListener('input', () => {
+            textarea.style.height = 'auto';
+            textarea.style.height = `${textarea.scrollHeight}px`;
+        });
+    </script>
+    <script type="module" src="{{ url_for('static', filename='js/game.js') }}"></script>
+</div>
 {% endblock %}
