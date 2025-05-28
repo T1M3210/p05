@@ -25,12 +25,12 @@ def register():
             return redirect(url_for("game"))
     return render_template("register.html")
 
-@app.route("/game")
+@app.route("/game", methods=["GET", "POST"])
 def game():
     with open('p05/app/static/rules.json') as f:
         rules = json.load(f)
     return render_template("game.html", rules = rules)
-    
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
