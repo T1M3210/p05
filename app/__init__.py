@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for, flash
 import os
 import json
-from db import *
+from p05.app.db import *
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
@@ -27,7 +27,7 @@ def register():
 
 @app.route("/game")
 def game():
-    with open('static/rules.json') as f:
+    with open('p05/app/static/rules.json') as f:
         rules = json.load(f)
     return render_template("game.html", rules = rules)
     
@@ -63,4 +63,4 @@ def color_trap():
 
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug = False)

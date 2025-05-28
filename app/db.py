@@ -3,7 +3,7 @@ import bcrypt
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
-mongo_key = open("keys/key_mongo.txt").read().strip("\n")
+mongo_key = open("p05/app/keys/key_mongo.txt").read().strip("\n")
 
 uri = f"mongodb+srv://jasonc573:{mongo_key}@ynca.axg704f.mongodb.net/?retryWrites=true&w=majority&appName=ynca"
 
