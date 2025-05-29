@@ -137,5 +137,5 @@ def color_trap():
     return render_template("color_trap.html")
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=False, host = "0.0.0.0")
 
