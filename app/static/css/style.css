@@ -3,11 +3,11 @@ body {
 }
 
 #obstacle-btn {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  transition: left 0.3s ease, top 0.3s ease;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: left 0.3s ease, top 0.3s ease;
 }
 
 .nav-link {
@@ -17,6 +17,11 @@ body {
 .nav-link:hover {
     transition: 0.1s;
     color: grey;
+}
+
+.alert {
+    text-align: center;
+    height: 50px;
 }
 
 a[id=active] {
@@ -98,5 +103,3 @@ h3[id=rule-title] {
 .rule-box.hidden {
   display: none !important; /* !important overrides and conflicting css */
 }
-
-
