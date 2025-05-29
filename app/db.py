@@ -38,12 +38,18 @@ def verify_user(username, password):
     user = user_collection.find_one({'username': username})
     if not user:
         return False
+    for doc in user_collection.find({'username' : username}):
+        salt = doc['salt']
+        hash = doc['hash']
 
-    salt = user['salt']
-    hash = user['hash']
-    input_hash = bcrypt.hashpw(password.encode('utf-8'), salt)
+        input_hash = bcrypt.hashpw(password.encode('utf-8'), salt)
 
-    return hash == input_hash
+        if hash == input_hash:
+            print('Login Successful')
+            return True
+        else:
+            print('Password incorrect')
+            return False
 
 def clear_collection(collection_name):
     print("Deleting documents...")

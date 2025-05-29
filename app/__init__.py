@@ -29,13 +29,13 @@ def register():
             return redirect(url_for("game"))
     return render_template("register.html")
 
-@app.route("/game")
+@app.route("/game", methods=["GET", "POST"])
 def game():
     # Use relative path to the JSON rules file
     rules_path = BASE_DIR / 'static' / 'rules.json'
     with open(rules_path) as f:
         rules = json.load(f)
-    return render_template("game.html", rules=rules)
+    return render_template("game.html", rules = rules)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():

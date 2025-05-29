@@ -8,7 +8,7 @@
     "condition": "/(\\u00a9|\\u00ae|[\\u2000-\\u3300]|\\ud83c[\\ud000-\\udfff]|\\ud83d[\\ud000-\\udfff]|\\ud83e[\\ud000-\\udfff])/"
   },
   {
-    "str": "Your password must include avogadro's number (Use * and ^ or e, 2 decimal places).",
+    "str": "Your password must include Avogadro's number (Use * and ^ or e, 2 decimal places).",
     "condition": "/(6\\.02\\*10\\^23|6\\.02e23)/"
   },
   {
