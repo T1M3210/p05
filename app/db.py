@@ -1,61 +1,64 @@
-import pymongo
+import sqlite3
 import bcrypt
-from pymongo.mongo_client import MongoClient
-from pymongo.server_api import ServerApi
 from pathlib import Path
 
 # Define base directory
 BASE_DIR = Path(__file__).resolve().parent
 
-# Use relative path to the key file
-key_path = BASE_DIR / 'keys' / 'key_mongo.txt'
-mongo_key = key_path.read_text().strip()
+# Path to SQLite database
+DB_PATH = BASE_DIR / 'users.db'
 
-uri = f"mongodb+srv://jasonc573:{mongo_key}@ynca.axg704f.mongodb.net/?retryWrites=true&w=majority&appName=ynca"
+# Initialize database connection
+conn = sqlite3.connect(DB_PATH)
+cursor = conn.cursor()
 
-# Create a new client and connect to the server
-client = MongoClient(uri, server_api=ServerApi('1'))
-
-# Create Mongo collections
-db = client['database']
-user_collection = db['users']
+# Create the users table if it doesn't exist
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS users (
+    username TEXT PRIMARY KEY,
+    salt BLOB NOT NULL,
+    hash BLOB NOT NULL
+)
+''')
+conn.commit()
 
 def check_user(username):
-    return user_collection.find_one({"username": username}) is not None
+    cursor.execute("SELECT 1 FROM users WHERE username = ?", (username,))
+    return cursor.fetchone() is not None
 
 def add_user(username, password):
-    salt = bcrypt.gensalt()
-    hash = bcrypt.hashpw(password.encode('utf-8'), salt)
+    if check_user(username):
+        print("User already exists.")
+        return
 
-    user_dict = {
-        'username': username,
-        'salt': salt,
-        'hash': hash
-    }
-    insert = user_collection.insert_one(user_dict)
+    salt = bcrypt.gensalt()
+    hash_pw = bcrypt.hashpw(password.encode('utf-8'), salt)
+    
+    cursor.execute(
+        "INSERT INTO users (username, salt, hash) VALUES (?, ?, ?)",
+        (username, salt, hash_pw)
+    )
+    conn.commit()
 
 def verify_user(username, password):
-    user = user_collection.find_one({'username': username})
-    if not user:
+    cursor.execute("SELECT salt, hash FROM users WHERE username = ?", (username,))
+    row = cursor.fetchone()
+    if row is None:
+        print("User not found.")
         return False
-    for doc in user_collection.find({'username' : username}):
-        salt = doc['salt']
-        hash = doc['hash']
 
-        input_hash = bcrypt.hashpw(password.encode('utf-8'), salt)
+    salt, stored_hash = row
+    input_hash = bcrypt.hashpw(password.encode('utf-8'), salt)
 
-        if hash == input_hash:
-            print('Login Successful')
-            return True
-        else:
-            print('Password incorrect')
-            return False
+    if stored_hash == input_hash:
+        print('Login Successful')
+        return True
+    else:
+        print('Password incorrect')
+        return False
 
-def clear_collection(collection_name):
-    print("Deleting documents...")
-    x = collection_name.delete_many({})
-    print("Done!")
-    print(x.deleted_count, " documents deleted.")
-
-# clear_collection(user_collection)
-
+def clear_users():
+    print("Deleting users...")
+    cursor.execute("DELETE FROM users")
+    conn.commit()
+    print("All users deleted.")
