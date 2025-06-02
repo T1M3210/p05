@@ -2,13 +2,13 @@ from flask import Flask, render_template, request, redirect, session, url_for, f
 import os
 import json
 from pathlib import Path
-from p05.app.db import *
+from db import *
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
 # GLOBAL VARIABLES
-global username
+username = ''
 
 # Define the base directory (where this file is located)
 BASE_DIR = Path(__file__).resolve().parent
@@ -38,6 +38,7 @@ def game():
 
     if request.method == "POST":
         # print(request.form["password"])
+        print(username)
         add_user(username, request.form["enter-password"])
         flash("Username and password created!")
         return redirect(url_for("login"))
