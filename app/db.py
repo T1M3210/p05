@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent
 DB_PATH = BASE_DIR / 'users.db'
 
 # Initialize database connection
-conn = sqlite3.connect(DB_PATH)
+conn = sqlite3.connect(DB_PATH, check_same_thread=False)
 cursor = conn.cursor()
 
 # Create the users table if it doesn't exist
