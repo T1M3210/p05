@@ -80,3 +80,10 @@ jasonC -- 2025-05-23 11:37
  - Removed extra "rules.js" file
 timN, adityaA -- 2025-05-23 11:47
  - Continued debugging an issue
+adityaA -- 2025-05-27 11:47
+ - Made password rules appear one at a time
+jasonC -- 2025-05-29 11:19
+ - Fixed flash rendering and file errors
+adityaA -- 2025-05-29 11:47
+ - Explored other groups' projects and left feedback
+ - Helped Tim in debugging

@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, url_for, flash
 import os
 import json
+from pathlib import Path
 from db import *
 
 app = Flask(__name__)
@@ -8,6 +9,9 @@ app.secret_key = os.urandom(32)
 
 # GLOBAL VARIABLES
 global username
+
+# Define the base directory (where this file is located)
+BASE_DIR = Path(__file__).resolve().parent
 
 @app.route('/')
 def home():
@@ -25,12 +29,14 @@ def register():
             return redirect(url_for("game"))
     return render_template("register.html")
 
-@app.route("/game")
+@app.route("/game", methods=["GET", "POST"])
 def game():
-    with open('static/rules.json') as f:
+    # Use relative path to the JSON rules file
+    rules_path = BASE_DIR / 'static' / 'rules.json'
+    with open(rules_path) as f:
         rules = json.load(f)
     return render_template("game.html", rules = rules)
-    
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -42,6 +48,8 @@ def login():
             return redirect(url_for("home"))
         else:
             flash("Invalid login credentials.")
+            # return render_template("login.html")
+
             return redirect(url_for("login"))
 
     return render_template("login.html")
@@ -52,7 +60,6 @@ def logout():
     flash("Logged out.")
     return redirect(url_for("login"))
 
-
 @app.route('/story')
 def story():
     return render_template("story.html")
@@ -61,6 +68,5 @@ def story():
 def color_trap():
     return render_template("color_trap.html")
 
-
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run(debug=False)
