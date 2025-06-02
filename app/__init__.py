@@ -35,6 +35,13 @@ def game():
     rules_path = BASE_DIR / 'static' / 'rules.json'
     with open(rules_path) as f:
         rules = json.load(f)
+
+    if request.method == "POST":
+        # print(request.form["password"])
+        add_user(username, request.form["enter-password"])
+        flash("Username and password created!")
+        return redirect(url_for("login"))
+
     return render_template("game.html", rules = rules)
 
 @app.route("/login", methods=["GET", "POST"])
@@ -48,8 +55,6 @@ def login():
             return redirect(url_for("home"))
         else:
             flash("Invalid login credentials.")
-            # return render_template("login.html")
-
             return redirect(url_for("login"))
 
     return render_template("login.html")
