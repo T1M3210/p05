@@ -67,6 +67,10 @@ def logout():
     flash("Logged out.")
     return redirect(url_for("login"))
 
+@app.route('/leaderboard')
+def leaderboard():
+    return render_template('leaderboard.html')
+
 @app.route('/story')
 def story():
     return render_template("story.html")
