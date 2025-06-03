@@ -91,3 +91,5 @@ timN, jasonC, adityaA, stellaY -- 2025-06-02 11:47
  - switched from mongo to sqlite
 stellaY -- 2025-06-03 11:46
  - fix buggy sqlite
+adityaA -- 2025-06-03 11:47
+ - worked on end.html
