@@ -16,7 +16,7 @@ function generateColorGame() {
   guessCount = 0;
 
   const [targetR, targetG, targetB] = generateRandomColor();
-  colorInstruction.textContent = `Click the color closest to RGB(${targetR}, ${targetG}, ${targetB})`;
+  colorInstruction.textContent = `Not so fast! If you want to access the website, click the color closest to RGB(${targetR}, ${targetG}, ${targetB})`;
 
   correctIndex = Math.floor(Math.random() * 16);
 
