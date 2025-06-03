@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* non captcha
   btn.addEventListener('click', () => {
     alert('You win! Proceeding to the next page...');
-    window.location.href = "/story2";  // Add next page later
+    window.location.href = "/color-trap";  // Add next page later
   });
 */
 
@@ -84,7 +84,7 @@ function showCaptcha() {
         
       } else {
         alert("Failed like a true human! You're in.");
-        window.location.href = "/story2";  // Replace with actual next page
+        window.location.href = "/color-trap";
       }
     });
 
