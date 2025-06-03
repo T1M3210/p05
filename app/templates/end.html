@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🎶 YNCA Time</title>
+</head>
+<body style="text-align: center; font-family: Arial;">
+    <h1>🎉 You Did It! 🎉</h1>
+    <img src="{{ url_for('static', filename='topher.jpg') }}" alt="Topher" style="max-width: 80%; height: auto; margin: 20px 0;">
+    <audio controls autoplay>
+        <source src="{{ url_for('static', filename='ymca.mp3') }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>

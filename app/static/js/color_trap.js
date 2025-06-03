@@ -54,7 +54,7 @@ function handleGuess(event) {
     Array.from(colorGrid.children)[correctIndex].style.outline = "4px solid green";
 
     setTimeout(() => {
-      window.location.href = "/story2.html";
+      window.location.href = "end";
     }, 1500);
   } else {
     guessCount++;

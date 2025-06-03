@@ -64,9 +64,14 @@ def logout():
 def story():
     return render_template("story.html")
 
-@app.route("/color-trap")
+@app.route("/color-trap", methods=["GET", "POST"])
 def color_trap():
     return render_template("color_trap.html")
+
+@app.route("/end")
+def end():
+    return render_template("end.html")
+
 
 if __name__ == '__main__':
     app.run(debug=False)
