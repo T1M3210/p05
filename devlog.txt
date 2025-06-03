@@ -87,3 +87,5 @@ jasonC -- 2025-05-29 11:19
 adityaA -- 2025-05-29 11:47
  - Explored other groups' projects and left feedback
  - Helped Tim in debugging
+timN, jasonC, adityaA, stellaY -- 2025-06-02 11:47
+ - switched from mongo to sqlite
