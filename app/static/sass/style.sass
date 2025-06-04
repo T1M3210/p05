@@ -1,0 +1,105 @@
+body
+    background-color: rgb(255, 251, 235)
+
+#obstacle-btn
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    transition: left 0.3s ease, top 0.3s ease
+
+.nav-link
+    margin: auto
+
+.nav-link:hover
+    transition: 0.1s
+    color: grey
+
+.alert
+    text-align: center
+    height: 50px
+
+a[id=active]
+    font-weight: 500
+    margin-top: 3px
+    border-bottom: solid 3px
+
+textarea[id=enter-password]
+    display: block
+    margin: 0 auto
+    margin-bottom: 3%
+    width: 40%
+    min-height: 3px
+    resize: none; /** Removes resize handle **/
+    box-sizing: border-box
+    padding: 5px 10px 5px 10px
+    font-size: 40px
+    border-radius: 5px
+    overflow: hidden; /** Hide scroll bar **/
+
+input[type=submit]
+    display: block
+    margin: 0 auto
+    margin-bottom: 5%
+    padding: 1%
+    border: solid 2px grey
+    border-radius: 15px
+    transition: 0.2s
+
+input[type=submit]:hover
+    transition: 0.2s
+
+div[id=rule]
+    transition: 0.3s
+    scale: 1
+    margin: auto
+    width: 60%
+    border: thin
+    border-radius: 10px
+    box-shadow: 3px 3px grey
+    background-color: rgb(230, 216, 191)
+    padding: 20px
+
+div[id=rule]:hover
+    transition: 0.3s
+    scale: 1.05
+
+h3[id=rule-title]
+    padding: 2%
+
+table
+    width: 100%
+td, th
+    border: 1px solid #000000
+    padding: 8px
+th
+    background-color: white
+    color: black
+    text-align: center
+td
+    text-align: left
+tr:nth-child(even)
+    background-color: #dddddd
+tr:nth-child(odd)
+    background-color: #f2f2f2
+
+#color-grid
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr))
+    gap: 10px
+    max-width: 600px
+    margin: 30px auto
+
+.color-square
+    width: 60px
+    height: 60px
+    cursor: pointer
+    border-radius: 5px
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1)
+
+.rule-box
+    transition: all 0.3s ease
+
+/*to hide the rules and reveal them 1 by 1*/
+.rule-box.hidden
+    display: none !important; /* !important overrides and conflicting css */

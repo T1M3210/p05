@@ -98,3 +98,6 @@ adityaA -- 2025-06-04 11:47
 jasonC -- 2025-06-04 17:15
  - remodeled navbar to look cleaner
  - completed the leaderboard page
+jasonC -- 2025-06-04 17:34
+ - changed styling to Sass from CSS
+ - changed some bugs with the navbar where certain pages weren't showing

@@ -9,6 +9,7 @@
             <div class="navbar-nav">
                 <a class="nav-link mx-4 text-dark" href="{{ url_for('home') }}">Home</a>
             {% if 'user' in session %}
+                <a id="active" class="nav-link mx-2 text-dark" href="{{ url_for('game') }}">Play Again</a>
                 <a class="nav-link mx-4 text-dark" href="{{ url_for('leaderboard') }}">Leaderboard</a>
                 <a class="nav-link mx-2 text-dark" href="{{ url_for('logout') }}">Logout</a>
             {% else %}
