@@ -70,7 +70,10 @@ def logout():
 
 @app.route('/leaderboard')
 def leaderboard():
-    return render_template('leaderboard.html')
+    print(get_scores())
+    for username, hash, score in get_scores():
+        print(username, hash, score)
+    return render_template('leaderboard.html', data = get_scores())
 
 @app.route('/story')
 def story():

@@ -43,6 +43,8 @@ def add_user(username, password):
     conn.commit()
 
 def verify_user(username, password):
+    print(username)
+    print(password)
     cursor.execute("SELECT salt, hash FROM users WHERE username = ?", (username,))
     row = cursor.fetchone()
     if row is None:
@@ -62,6 +64,7 @@ def get_scores():
     cursor.execute("SELECT username, hash, score FROM users ORDER BY score ASC")
     scores = cursor.fetchall()
     return scores
+    
 def clear_users():
     print("Deleting users...")
     cursor.execute("DELETE FROM users")
