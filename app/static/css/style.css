@@ -79,6 +79,19 @@ h3[id=rule-title] {
     padding: 2%;
 }
 
+table {
+    width: 100%;
+}
+td, th {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+th {
+    text-align: center;
+}
+td {
+    text-align: left;
+}
 tr:nth-child(even) {
   background-color: #dddddd;
 }
