@@ -18,7 +18,8 @@ def makedb():
         CREATE TABLE IF NOT EXISTS users (
         username TEXT PRIMARY KEY,
         salt BLOB NOT NULL,
-        hash BLOB NOT NULL
+        hash BLOB NOT NULL,
+        score INTEGER
         )
         ''')
     conn.commit()
@@ -31,13 +32,13 @@ def add_user(username, password):
     if check_user(username):
         print("User already exists.")
         return
-
+    score = len(password)
     salt = bcrypt.gensalt()
     hash_pw = bcrypt.hashpw(password.strip().encode('utf-8'), salt)
 
     cursor.execute(
-        "INSERT INTO users (username, salt, hash) VALUES (?, ?, ?)",
-        (username, salt, hash_pw)
+        "INSERT INTO users (username, salt, hash, score) VALUES (?, ?, ?, ?)",
+        (username, salt, hash_pw, score)
     )
     conn.commit()
 
