@@ -23,6 +23,8 @@
             <th style="width: 50%;">Password Hash</th>
             <th style="width: 20%;">Password Length</th>
         </tr>
+        {{ for username, hash, score in data }}
+
 
     </table>
 {% endblock %}

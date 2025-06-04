@@ -64,6 +64,7 @@ def get_scores():
     cursor.execute("SELECT username, hash, score FROM users ORDER BY score ASC")
     scores = cursor.fetchall()
     return scores
+    
 def clear_users():
     print("Deleting users...")
     cursor.execute("DELETE FROM users")
