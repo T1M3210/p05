@@ -33,7 +33,7 @@ def add_user(username, password):
 
     salt = bcrypt.gensalt()
     hash_pw = bcrypt.hashpw(password.encode('utf-8'), salt)
-    
+
     cursor.execute(
         "INSERT INTO users (username, salt, hash) VALUES (?, ?, ?)",
         (username, salt, hash_pw)
@@ -41,6 +41,8 @@ def add_user(username, password):
     conn.commit()
 
 def verify_user(username, password):
+    print(username)
+    print(password)
     cursor.execute("SELECT salt, hash FROM users WHERE username = ?", (username,))
     row = cursor.fetchone()
     if row is None:
