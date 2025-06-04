@@ -18,5 +18,15 @@
   {
     "str": "Your password must contain today's date (YYYY-MM-DD).",
     "condition": "includesTodayDate"
+  },
+
+  {
+    "str": "Your password must include a product of two prime numbers. The product must be less than 100 but greater than 25",
+    "condition": "/(26|33|34|35|38|39|46|49|51|55|57|58|62|65|69|74|77|82|85|86|87|91|93|94|95)/"
+  }, 
+
+  {
+    "str": "Your password must contain an English word that ends with 'mt'. The case should be the same as it is in the dictionary",
+    "condition": "/(DMT|dreamt|EMT|redreamt|undreamt)/"
   }
 ]
