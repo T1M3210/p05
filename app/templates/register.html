@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
-<nav class="navbar navbar-expand-lg text-muted bg-dark">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg mt-1 mb-2">
+    <div class="container">
         <a class="navbar-brand" href="{{ url_for('home') }}" style="margin-left: -1%;">
             <img src="{{ url_for('static', filename='logo.jpg') }}" width="60" height="60" class="d-inline-block align-top" alt="logo">
         </a>
         <div class="collapse navbar-collapse">
             <div class="navbar-nav">
-                <a class="nav-link mx-4 text-light" href="{{ url_for('home') }}">Home</a>
-                <a class="nav-link mx-2 text-light" href="{{ url_for('login') }}">Login</a>
-                <a id="active" class="nav-link mx-4 text-light" href="{{ url_for('register') }}">Sign Up</a>
+                <a class="nav-link mx-4 text-dark" href="{{ url_for('home') }}">Home</a>
+                <a class="nav-link mx-2 text-dark" href="{{ url_for('login') }}">Login</a>
+                <a id="active" class="nav-link mx-4 text-dark" href="{{ url_for('register') }}">Sign Up</a>
             </div>
         </div>
     </div>
 </nav>
 
-<main class="container mt-4">
+<main class="container" style="border-top: solid gray 2px;">
     <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
         <div class="card p-4 shadow-sm" style="width: 100%; max-width: 400px;">
             {% with messages = get_flashed_messages() %}

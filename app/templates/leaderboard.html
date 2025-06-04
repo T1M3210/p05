@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-<nav class="navbar navbar-expand-lg text-muted bg-dark">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg mt-1 mb-2">
+    <div class="container">
         <a class="navbar-brand" href="{{ url_for('home') }}" style="margin-left: -1%;">
             <img src="{{ url_for('static', filename='logo.jpg') }}" width="60" height="60" class="d-inline-block align-top" alt="logo">
         </a>
         <div class="collapse navbar-collapse">
             <div class="navbar-nav">
-                <a class="nav-link mx-4 text-light" href="{{ url_for('home') }}">Home</a>
-                <a class="nav-link mx-2 text-light" href="{{ url_for('game') }}">Play Again</a>
-                <a id="active" class="nav-link mx-4 text-light" href="{{ url_for('leaderboard') }}">Leaderboard</a>
-                <a class="nav-link mx-2 text-light" href="{{ url_for('logout') }}">Logout</a>
+                <a class="nav-link mx-4 text-dark" href="{{ url_for('home') }}">Home</a>
+                <a class="nav-link mx-2 text-dark" href="{{ url_for('game') }}">Play Again</a>
+                <a id="active" class="nav-link mx-4 text-dark" href="{{ url_for('leaderboard') }}">Leaderboard</a>
+                <a class="nav-link mx-2 text-dark" href="{{ url_for('logout') }}">Logout</a>
             </div>
         </div>
     </div>
 </nav>
 
-<div class="container pt-3 d-block">
+<div class="container mt-2 pt-3 d-block" style="border-top: solid gray 2px;">
     <table>
         <tr>
             <th style="width: 30%;">Username</th>
