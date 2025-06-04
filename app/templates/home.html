@@ -23,5 +23,10 @@
 
 <main class="container mt-4">
     <h2>Welcome to YNCA's Password Game!</h2>
+    {% if 'user' in session %}
+        <button onclick="window.location.href='{{ url_for('story') }}';">Click the button! It’s easy.</button>
+    {% endif %}
+
+
 </main>
 {% endblock %}
