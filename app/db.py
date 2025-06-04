@@ -62,6 +62,22 @@ def get_scores():
     cursor.execute("SELECT username, hash, score FROM users ORDER BY score ASC")
     scores = cursor.fetchall()
     return scores
+
+def update_pass(username, new_password):
+    if not check_user(username):
+        print("User does not exist.")
+        return
+    new_salt = bcrypt.gensalt()
+    new_hash = bcrypt.hashpw(new_password.strip().encode('utf-8'), new_salt)
+    new_score = len(new_password)
+
+    cursor.execute(
+        "UPDATE users SET salt = ?, hash = ?, score = ? WHERE username = ?",
+        (new_salt, new_hash, new_score, username)
+    )
+    conn.commit()
+    print("Password updated.")
+
 def clear_users():
     print("Deleting users...")
     cursor.execute("DELETE FROM users")
