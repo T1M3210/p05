@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>🎶 YNCA Time</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sass.css') }}">
 </head>
-<body style="text-align: center; font-family: Arial;">
-    <h1>🎉 You Did It! 🎉</h1>
-    <img src="{{ url_for('static', filename='topher.jpg') }}" alt="Topher" style="max-width: 80%; height: auto; margin: 20px 0;">
-    <audio controls autoplay>
+<body class="page">
+    <h1 class="page__title">🎉 You Did It! 🎉</h1>
+    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="YNCA" class="page__logo">
+    <audio controls autoplay class="page__audio">
         <source src="{{ url_for('static', filename='ymca.mp3') }}" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 </body>
 </html>
+

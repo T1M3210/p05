@@ -12,7 +12,7 @@ username = 'placeholder'
 
 # Define the base directory (where this file is located)
 BASE_DIR = Path(__file__).resolve().parent
-
+makedb()
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -41,6 +41,7 @@ def game():
         # print(username)
         # print(request.form["password"])
         add_user(username, request.form["password"])
+
         flash("Username and password created!")
         return redirect(url_for("login"))
 
