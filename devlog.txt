@@ -93,3 +93,6 @@ stellaY -- 2025-06-03 11:46
  - fix buggy sqlite
 adityaA -- 2025-06-03 11:47
  - worked on end.html
+jasonC -- 2025-06-04 17:15
+ - remodeled navbar to look cleaner
+ - completed the leaderboard page
