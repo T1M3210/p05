@@ -16,15 +16,26 @@
     </div>
 </nav>
 
-<div class="container mt-2 pt-3 d-block" style="border-top: solid gray 2px;">
+<div class="container mt-2 mb-3 pt-3 d-block" style="border-top: solid gray 2px;">
     <table>
         <tr>
             <th style="width: 30%;">Username</th>
             <th style="width: 50%;">Password Hash</th>
             <th style="width: 20%;">Password Length</th>
         </tr>
-        {{ for username, hash, score in data }}
-
+        {% if data %}
+        {% for username, hash, length in data %}
+        <tr>
+            <td>{{ username }}</td>
+            <td>{{ hash }}</td>
+            <td>{{ length }}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3" class="text-center">No data available</td>
+        </tr>
+        {% endif %}
 
     </table>
 {% endblock %}

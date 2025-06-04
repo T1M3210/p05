@@ -43,8 +43,8 @@ def add_user(username, password):
     conn.commit()
 
 def verify_user(username, password):
-    print(username)
-    print(password)
+    # print(username)
+    # print(password)
     cursor.execute("SELECT salt, hash FROM users WHERE username = ?", (username,))
     row = cursor.fetchone()
     if row is None:

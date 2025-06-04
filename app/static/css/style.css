@@ -83,10 +83,12 @@ table {
     width: 100%;
 }
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid #000000;
   padding: 8px;
 }
 th {
+    background-color: white;
+    color: black;
     text-align: center;
 }
 td {
@@ -94,6 +96,9 @@ td {
 }
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
 }
 
 #color-grid {
