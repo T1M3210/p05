@@ -23,10 +23,13 @@
 </nav>
 
 <main class="container" style="border-top: solid gray 2px;">
-    <h2>Welcome to YNCA's Password Game!</h2>
     {% if 'user' in session %}
-        <button onclick="window.location.href='{{ url_for('story') }}';">Click the button! It’s easy.</button>
+        <h2 class="mt-3 mb-2"><center>Oh, look! A new button!</center></h2>
+        <button onclick="window.location.href='{{ url_for('story') }}';"><center>Click the button! It’s easy.</center></button>
+    {% else %}
+        <h2 class="mt-3 mb-2"><center>Welcome to YNCA's Perfectly Normal Website!</center></h2>
     {% endif %}
+
 
 
 </main>
