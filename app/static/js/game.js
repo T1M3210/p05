@@ -7,10 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = document.querySelector('input[type=submit]');
   submitBtn.style.display = 'none';
 
-function getToday() {
+  let turtleIndex = 0;
+  let turtleActive = false;
+  const turtleEmoji = '🐢';
+  let turtleInterval = null;
+
+  function getToday() {
     const d = new Date();
     return d.toISOString().slice(0, 10);
-}
+  }
 
   const ruleElements = rules.map((rule, index) => {
     const div = document.createElement('div');
@@ -24,11 +29,10 @@ function getToday() {
     return div;
   });
 
-  // Show only the first rule to start
   ruleElements[0].classList.remove('hidden');
 
   textarea.addEventListener('input', () => {
-    const val = textarea.value;
+    const val = textarea.value.replace(turtleEmoji, ''); 
     let allPassed = true;
 
     for (let i = 0; i < rules.length; i++) {
@@ -39,14 +43,12 @@ function getToday() {
       div.style.backgroundColor = passed ? 'lightgreen' : 'lightcoral';
 
       if (!passed) {
-        // Hide all rules after this one
         for (let j = i + 1; j < ruleElements.length; j++) {
           ruleElements[j].classList.add('hidden');
         }
         allPassed = false;
         break;
       } else {
-        // Show the next rule
         if (i + 1 < ruleElements.length) {
           ruleElements[i + 1].classList.remove('hidden');
         }
@@ -54,5 +56,36 @@ function getToday() {
     }
 
     submitBtn.style.display = allPassed ? '' : 'none';
+
+    const firstTwoPassed = rules[0].pass && rules[1].pass;
+
+    if (firstTwoPassed && !turtleActive) {
+      turtleActive = true;
+      turtleIndex = 0;
+      textarea.value = turtleEmoji + val;
+
+      turtleInterval = setInterval(() => {
+        let currentVal = textarea.value.replace(turtleEmoji, '');
+        turtleIndex++;
+
+        if (turtleIndex > currentVal.length) {
+          clearInterval(turtleInterval);
+          alert('The turtle reached the end! You lose.');
+          location.reload();
+          return;
+        }
+
+        const before = currentVal.slice(0, turtleIndex);
+        const after = currentVal.slice(turtleIndex);
+        textarea.value = before + turtleEmoji + after;
+      }, 3000); 
+    }
+  });
+
+  textarea.addEventListener('keydown', (e) => {
+    const pos = textarea.selectionStart;
+    if (turtleActive && pos === turtleIndex) {
+      e.preventDefault();
+    }
   });
 });
